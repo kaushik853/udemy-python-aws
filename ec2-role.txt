@@ -1,0 +1,39 @@
+login as: ec2-user
+Authenticating with public key "test-ec2"
+Last login: Thu Feb  6 16:29:25 2020 from guests.inetgate.hzo.de.adidas-group.com
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+6 package(s) needed for security, out of 20 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-17-17-75 ~]$ cd venv
+[ec2-user@ip-172-17-17-75 venv]$ ls
+ec2_user.py  python3
+[ec2-user@ip-172-17-17-75 venv]$ vim ec2_user.py
+import boto3
+#aws_mag_con=boto3.session.Session(profile_name="adi_security")
+ec2_con_re=boto3.resource(service_name="ec2", region_name="eu-central-1")
+
+for each in ec2_con_re.instances.all():
+    print(each.id, each.state)
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+-- INSERT --                                                  3,16          All
