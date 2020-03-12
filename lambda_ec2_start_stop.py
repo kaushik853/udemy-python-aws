@@ -1,6 +1,7 @@
 ''' Role for Lambda--> To get access of any aws required EC2 service through 
 Create Lambda function code, assign the above Role
-Schedule a cloudwatch trigger with Rules and Cron job 0 8 ? * MON-FRI *
+Schedule a cloudwatch trigger with Rules and Cron job 0 8 am ? * MON-FRI * to start ec2
+Another lambda to stop ec2 at 5 pm everyday with cloudwatch trigger rule
 '''
 
 import boto3
