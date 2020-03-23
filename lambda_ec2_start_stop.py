@@ -10,3 +10,8 @@ def lambda_handler(event, context):
     test_env_filter = {"Name":"tag:Env", "Values":["Test"]}
     for each_ in ec2_con.instances.filter(Filters=[test_env_filter]):
         each_.start()
+
+#ec2 resource object
+#my_ins = ec2_con.Instance('INSTANCE-ID')
+#For SNS topic
+#sns_client.publish(TargetArn='SNS-TOPIC-ARN', Message=my_ins.state['Name'])
