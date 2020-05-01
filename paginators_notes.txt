@@ -1,0 +1,24 @@
+# Paginators plays role when we use boto3 to query AWS resource.
+#Like all ec2 instances, iam users, buckets etc.
+#for query, each api call to aws resources are made by boto3
+#General api query  return limit can be 50 or 100 results.
+#s3 returns 1000 results
+#Paginator helps to issue multiple API call on befalf of boto3.
+#Not all boto3 service provide paginator. For those services need to write own paginator in python.
+
+
+import boto3
+
+
+session = boto3.session.Session(profie_name='adi_security)
+iam_cli = session.client(service_name='iam')
+paginator = iam_cli.get_paginator('list_users')
+for each_page in paginator.paginate():
+    for each_user in each_page['users]:
+        print(each_user['UserName'])
+
+#EC2 example
+ec2_cli = session.client(service_name='ec2)
+paginator = ec2_cli.get_paginator('describe_instances')
+for each_page in paginator:
+    print(each_page)
